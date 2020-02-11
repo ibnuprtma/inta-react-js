@@ -20,7 +20,7 @@ function App() {
           </Header>
           <Content>
               <div className="page-content" />
-              <DetailProduct/>
+              <Main/>
           </Content>
       </Layout>
     </div>
