@@ -45,13 +45,13 @@ import axios from 'axios';
 export default class Main extends Component{
 
     state ={
-        persons: [],
+        data: [],
     };
 
     componentDidMount(){
         axios.get('http://192.168.150.26:8080/tokopedia/laptop/20').then(res => {
-            console.log(res);
-            this.setState({ persons: res.data})
+            console.log(res.data.data);
+            this.setState({ data: res.data.data})
         })
         .catch(err => {
             console.log(err);
@@ -61,16 +61,17 @@ export default class Main extends Component{
     render(){
         return(
             <Grid>
-                { this.state.persons.map(person => 
-                <Cell key={person.id} >
+                { this.state.data.map(data => 
+                <Cell key={data.id} >
                     <Card shadow={0} style={{width: '280px', height: '280px',  margin: 'auto'}}>
-                        <CardTitle expand style={{color: '#fff', background: 'url(http://www.getmdl.io/assets/demos/dog.png) bottom right 15% no-repeat #46B6AC'}}>Update</CardTitle>
+                        <CardTitle expand style={{color: `#fff`, background: `url("${data.image}") right 15% no-repeat #46B6AC`}}></CardTitle>
                         <CardText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Aenan convallis.
+                            {data.name}
+                            <br/>
+                            <span><b>Rp. {data.price}</b></span>
                         </CardText>
                         <CardActions border>
-                            <Button colored>{person.name}</Button>
+                            <Button colored>Lihat Selengkapnya</Button>
                         </CardActions>
                     </Card>
                 </Cell>
