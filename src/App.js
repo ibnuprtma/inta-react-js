@@ -14,6 +14,7 @@ function App() {
                 label="Expandable Input"
                 expandable
                 expandableIcon="search"
+                name="search"
             />
           </Header>
           <Content>
