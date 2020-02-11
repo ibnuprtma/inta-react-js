@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Layout, Header, Navigation, Drawer, Content, Textfield } from 'react-mdl';
 import Main from './components/main';
+import DetailProduct from './components/detail-product';
 import { Link } from 'react-router-dom';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           </Header>
           <Content>
               <div className="page-content" />
-              <Main/>
+              <DetailProduct/>
           </Content>
       </Layout>
     </div>
